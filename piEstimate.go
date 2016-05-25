@@ -26,7 +26,7 @@ func piLeibniz(n int) float64 {
     go leibnizNode(ch, float64(i))
   }
   sum := 0.0
-  for i := 0; i <= n; i++ { // Leibniz Series starts from Node n=0
+  for i := 0; i <= n; i++ { // Leibniz Series starts from Node i=0
     sum += <-ch
   }
   return sum
@@ -38,7 +38,7 @@ func eulerNode(ch2 chan float64, i float64) {
 
 func piEuler(n int) float64 {
   ch2 := make(chan float64)
-  for i := 1; i <= n; i++ {   // Euler Series starts from Node n=1
+  for i := 1; i <= n; i++ {   // Euler Series starts from Node i=1
     go eulerNode(ch2, float64(i))
   }
   sum := 0.0
